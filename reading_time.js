@@ -23,17 +23,17 @@ function create_element(minutes) {
   element.style.backgroundColor = background_color;
   element.style.color = font_color;
   element.style.position = "fixed";
-  element.style.right = "1em";
-  element.style.bottom = "1em";
+  element.style.right = "5vh";
+  element.style.bottom = "5vh";
   element.style.textAlign = "center";
-  element.style.fontSize = "1.5em";
-  element.style.padding = "0.55em";
+  element.style.fontSize = "4vh";
+  element.style.padding = "3vh";
 
   let exit = document.createElement("div");
   exit.style.position = "absolute";
-  exit.style.right = "0.5em";
-  exit.style.top = "0.15em";
-  exit.style.fontSize = "0.5em";
+  exit.style.right = "1vh";
+  exit.style.top = "1vh";
+  exit.style.fontSize = "2vh";
   exit.style.cursor = "pointer";
 
   element.innerText = minutes + " min";
