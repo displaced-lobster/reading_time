@@ -1,0 +1,16 @@
+{
+  "manifest_version": 2,
+  "name": "Reading Time",
+  "version": "1.0",
+
+  "icons": {
+    "48": "icons/reading_time-48.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["./reading_time.js"]
+    }
+  ]
+}
