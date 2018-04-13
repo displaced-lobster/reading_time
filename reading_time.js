@@ -19,7 +19,7 @@ function remove_element() {
 
 function create_element(minutes) {
   let element = document.createElement("div");
-  element.style.zIndex = "999";
+  element.style.zIndex = "99999";
   element.style.backgroundColor = background_color;
   element.style.color = font_color;
   element.style.position = "fixed";
@@ -49,13 +49,14 @@ function create_element(minutes) {
 }
 
 
+window.onload = function() {
+  let word_count = count_words(document.body.innerText);
+  let reading_time = Math.round(word_count / reading_speed);
 
-let word_count = count_words(document.body.innerText);
-let reading_time = Math.round(word_count / reading_speed);
+  console.log(word_count);
+  console.log(reading_time);
 
-console.log(word_count);
-console.log(reading_time);
-
-if (reading_time > 4) {
-  create_element(reading_time);
-}
+  if (reading_time > 4) {
+    create_element(reading_time);
+  }
+};
