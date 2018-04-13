@@ -28,6 +28,7 @@ function create_element(minutes) {
   element.style.textAlign = "center";
   element.style.fontSize = "4vh";
   element.style.padding = "3vh";
+  element.style.opacity = "0.85";
 
   let exit = document.createElement("div");
   exit.style.position = "absolute";
