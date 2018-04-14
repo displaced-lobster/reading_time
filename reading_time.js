@@ -18,7 +18,6 @@ function count_words(str) {
  * Removes the Reading Time element from the page's body.
  */
 function remove_element() {
-  console.log("function called");
   let element = document.getElementById("reading_time_element");
   element.parentNode.removeChild(element);
 }
@@ -68,9 +67,6 @@ function create_element(minutes) {
 window.onload = function() {
   let word_count = count_words(document.body.innerText);
   let reading_time = Math.round(word_count / reading_speed);
-
-  console.log(word_count);
-  console.log(reading_time);
 
   if (reading_time > 4) {
     create_element(reading_time);
