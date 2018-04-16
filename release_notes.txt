@@ -1,0 +1,9 @@
+v 1.0
+- Initial release.
+v1.1
+- Removed console logging.
+v1.2
+- Improved the popup element's styling.
+- Modified reading time calculation to attempt to compensate for extra text, i.e. navigation, header, footer, etc.
+- Changed reading time to be displayed if time is greater than 0.
+- Modified window load event as per https://developer.mozilla.org/en-US/docs/Web/Events/load

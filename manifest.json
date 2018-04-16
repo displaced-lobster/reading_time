@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Reading Time",
-  "version": "1.1",
+  "version": "1.2",
 
   "description": "Displays the estimated reading time for a website in a small popup element.",
   "homepage_url": "https://github.com/scripts-richard/reading_time",

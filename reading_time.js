@@ -33,19 +33,22 @@ function create_element(minutes) {
   element.style.backgroundColor = background_color;
   element.style.color = font_color;
   element.style.position = "fixed";
-  element.style.right = "5vh";
-  element.style.bottom = "5vh";
+  element.style.right = "15pt";
+  element.style.bottom = "15pt";
   element.style.textAlign = "center";
-  element.style.fontSize = "4vh";
-  element.style.padding = "3vh";
+  element.style.fontSize = "25pt";
+  element.style.padding = "12pt";
   element.style.opacity = "0.85";
+  element.style.boxShadow = "0pt 0pt 15pt black";
+  element.style.fontFamily = "Arial";
+  element.style.cursor = "pointer";
 
   let exit = document.createElement("div");
   exit.style.position = "absolute";
-  exit.style.right = "1vh";
-  exit.style.top = "1vh";
-  exit.style.fontSize = "2vh";
-  exit.style.cursor = "pointer";
+  exit.style.right = "4pt";
+  exit.style.top = "1pt";
+  exit.style.fontSize = "12pt";
+  exit.style.fontWeight = "bold";
 
   element.innerText = minutes + " min";
   exit.innerText = "x";
@@ -53,7 +56,7 @@ function create_element(minutes) {
   element.id = "reading_time_element";
   exit.id = "reading_time_exit";
 
-  exit.addEventListener("click", remove_element);
+  element.addEventListener("click", remove_element);
 
   element.appendChild(exit);
   document.body.appendChild(element);
@@ -64,11 +67,11 @@ function create_element(minutes) {
  * Only count words and create the element once given the window.onload.
  * Depending on page, can take awhile for window.onload to be given.
  */
-window.onload = function() {
+window.addEventListener("load", function(event) {
   let word_count = count_words(document.body.innerText);
-  let reading_time = Math.round(word_count / reading_speed);
+  let reading_time = Math.round(word_count / reading_speed) - 1;
 
-  if (reading_time > 4) {
+  if (reading_time > 0) {
     create_element(reading_time);
   }
-};
+});
