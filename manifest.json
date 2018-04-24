@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Reading Time",
-  "version": "1.2",
+  "version": "1.3",
 
   "description": "Displays the estimated reading time for a website in a small popup element.",
   "homepage_url": "https://github.com/scripts-richard/reading_time",
@@ -13,7 +13,16 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["./reading_time.js"]
+      "exclude_matches": ["*://*.reddit.com/*",
+                          "*://*.twitter.com/*",
+                          "*://*.google.com/*",
+                          "*://*.youtube.com/*",
+                          "*://*.bing.com/*",
+                          "*://*.duckduckgo.com/*",
+                          "*://*.amazon.com/*",
+                          "*://*.kijiji.ca/*"],
+      "js": ["./reading_time.js"],
+      "css": ["./reading_time.css"]
     }
   ]
 }

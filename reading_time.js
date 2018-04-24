@@ -1,8 +1,9 @@
 // Constants
-// Estimated reading speed of 200 words per minute.
-const reading_speed = 200;
 const background_color = "black";
 const font_color = "white";
+
+// Estimated reading speed of 200 words per minute.
+const reading_speed = 200;
 
 
 /*
@@ -29,26 +30,10 @@ function remove_element() {
  */
 function create_element(minutes) {
   let element = document.createElement("div");
-  element.style.zIndex = "99999";
-  element.style.backgroundColor = background_color;
-  element.style.color = font_color;
-  element.style.position = "fixed";
-  element.style.right = "15pt";
-  element.style.bottom = "15pt";
-  element.style.textAlign = "center";
-  element.style.fontSize = "25pt";
-  element.style.padding = "12pt";
-  element.style.opacity = "0.85";
-  element.style.boxShadow = "0pt 0pt 15pt black";
-  element.style.fontFamily = "Arial";
-  element.style.cursor = "pointer";
+  element.classList.add("reading_time_element");
 
   let exit = document.createElement("div");
-  exit.style.position = "absolute";
-  exit.style.right = "4pt";
-  exit.style.top = "1pt";
-  exit.style.fontSize = "12pt";
-  exit.style.fontWeight = "bold";
+  exit.classList.add("reading_time_element_exit");
 
   element.innerText = minutes + " min";
   exit.innerText = "x";
