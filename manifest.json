@@ -22,7 +22,8 @@
                           "*://*.amazon.com/*",
                           "*://*.kijiji.ca/*"],
       "js": ["./reading_time.js"],
-      "css": ["./reading_time.css"]
+      "css": ["./reading_time.css"],
+      "run_at": "document_end"
     }
   ]
 }
