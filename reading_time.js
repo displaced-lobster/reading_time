@@ -1,7 +1,3 @@
-// Constants
-const background_color = "black";
-const font_color = "white";
-
 // Estimated reading speed of 200 words per minute.
 const reading_speed = 200;
 
@@ -52,16 +48,6 @@ function create_element(minutes) {
  * Only count words and create the element once given the window.onload.
  * Depending on page, can take awhile for window.onload to be given.
  */
- /*
-window.addEventListener("load", function(event) {
-  let word_count = count_words(document.body.innerText);
-  let reading_time = Math.round(word_count / reading_speed) - 1;
-
-  if (reading_time > 0) {
-    create_element(reading_time);
-  }
-});
-*/
 let word_count = count_words(document.body.innerText);
 let reading_time = Math.round(word_count / reading_speed);
 
