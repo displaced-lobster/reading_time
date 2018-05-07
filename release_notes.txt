@@ -11,3 +11,5 @@ v1.3
 - Tweaks to pop-up styling.
 - Moved window load event from script to manifest.
 - Added exclusion list, very basic.
+v1.4
+- Fixed issue with pop-up not showing up on some sites.
