@@ -1,13 +1,19 @@
 {
   "manifest_version": 2,
-  "name": "Reading Time",
-  "version": "1.4",
+  "name": "Reading Time Toolbar - Test",
+  "version": "1.0",
 
   "description": "Displays the estimated reading time for a website in a small popup element.",
   "homepage_url": "https://github.com/scripts-richard/reading_time",
 
   "icons": {
     "48": "icons/reading_time-48.png"
+  },
+
+  "browser_action": {
+    "default_icon": "icons/reading_time-32.png",
+    "default_title": "Reading Time",
+    "default_popup": "popup/reading_time_popup.html"
   },
 
   "content_scripts": [
