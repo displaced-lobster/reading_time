@@ -13,3 +13,6 @@ v1.3
 - Added exclusion list, very basic.
 v1.4
 - Fixed issue with pop-up not showing up on some sites.
+v1.5
+- Added functionality to subtract words from the navigation, header, and footer elements.
+- Potential for subtracting words from count more than once but has lead to more accurate word count overall; still over counting words but much closer.
