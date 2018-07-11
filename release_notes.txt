@@ -18,3 +18,4 @@ v1.5
 - Potential for subtracting words from count more than once but has lead to more accurate word count overall; still over counting words but much closer.
 v1.6
 - New element design.
+- Design features to normalize element across different websites.
