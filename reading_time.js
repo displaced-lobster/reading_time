@@ -30,23 +30,20 @@ function create_element(minutes) {
   let element = document.createElement("div");
   element.classList.add("reading_time_element");
 
-  let exit = document.createElement("div");
-  exit.classList.add("reading_time_element_exit");
+  let content = document.createElement("span");
+  content.classList.add("reading_time_element_content");
 
   if (minutes >= 1) {
-    element.innerText = minutes + " min";
+    content.innerText = minutes + " min";
   } else {
-    element.innerText = "<1 min"
+    content.innerText = "<1 min"
   }
 
-  exit.innerText = "x";
-
   element.id = "reading_time_element";
-  exit.id = "reading_time_exit";
 
   element.addEventListener("click", remove_element);
 
-  element.appendChild(exit);
+  element.appendChild(content);
   document.body.appendChild(element);
 }
 
@@ -81,7 +78,6 @@ word_count -= count_words_by_element_name("header");
 
 // Less all words in footer elements
 word_count -= count_words_by_element_name("footer");
-
 DEBUG && console.log("Word count:", word_count);
 
 // Estimated reading time
