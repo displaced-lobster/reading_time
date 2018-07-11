@@ -3,10 +3,12 @@
   border-radius: 5px;
   bottom: 20px;
   box-shadow: 0px 0px 20px black;
+  box-sizing: border-box;
   color: white;
   cursor: pointer;
   font-family: "Arial";
   font-size: 30px;
+  line-height: 1.2;
   margin: 0;
   opacity: 0.85;
   padding: 15px;
@@ -14,7 +16,7 @@
   right: 20px;
   text-align:center;
   transition: box-shadow 0.5s;
-  min-width: 4em;
+  width: 4.6em;
   z-index: 99999;
 }
 
