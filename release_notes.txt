@@ -19,3 +19,5 @@ v1.5
 v1.6
 - New element design.
 - Design features to normalize element across different websites.
+v1.7
+- Added options to customise WPM and when the popup appears.

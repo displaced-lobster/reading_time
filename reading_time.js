@@ -1,6 +1,3 @@
-// Estimated reading speed of 200 words per minute.
-const READING_SPEED = 200;
-
 const DEBUG = false;
 
 
@@ -66,23 +63,44 @@ function count_words_by_element_name(element_name) {
 }
 
 
-// Count all words in body of document
-let word_count = count_words(document.body.innerText);
-DEBUG && console.log("Body word count:", word_count);
+const settings = browser.storage.sync;
+Promise.all([
+    settings.get("reading_speed"),
+    settings.get("popup_when_minutes_over")
+  ])
+  .then(r => {
+    const reading_speed = r[0]?.reading_speed || 200;
+    const popup_when_minutes_over = r[1]?.popup_when_minutes_over || 0;
 
-// Less all words in navigation elements
-word_count -= count_words_by_element_name("nav");
+    show_reading_time(reading_speed, popup_when_minutes_over);
+  });
 
-// Less all words in header elements
-word_count -= count_words_by_element_name("header");
 
-// Less all words in footer elements
-word_count -= count_words_by_element_name("footer");
-DEBUG && console.log("Word count:", word_count);
+function show_reading_time(reading_speed, popup_when_minutes_over) {
 
-// Estimated reading time
-let reading_time = Math.round(word_count / READING_SPEED);
-DEBUG && console.log("Reading time:", reading_time);
+  DEBUG && console.log("reading_speed", reading_speed);
+  DEBUG && console.log("popup_when_minutes_over", popup_when_minutes_over);
 
-// Spawn reading time element
-create_element(reading_time);
+  // Count all words in body of document
+  let word_count = count_words(document.body.innerText);
+  DEBUG && console.log("Body word count:", word_count);
+
+  // Less all words in navigation elements
+  word_count -= count_words_by_element_name("nav");
+
+  // Less all words in header elements
+  word_count -= count_words_by_element_name("header");
+
+  // Less all words in footer elements
+  word_count -= count_words_by_element_name("footer");
+  DEBUG && console.log("Word count:", word_count);
+
+  // Estimated reading time
+  let reading_time = Math.round(word_count / reading_speed);
+  DEBUG && console.log("Reading time:", reading_time);
+
+  // Spawn reading time element
+  if (reading_time >= popup_when_minutes_over) {
+    create_element(reading_time);
+  }
+}
