@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Reading Time",
-  "version": "1.6",
+  "version": "1.7",
 
   "description": "Displays the estimated reading time for a website in a small popup element.",
   "homepage_url": "https://github.com/scripts-richard/reading_time",
@@ -25,5 +25,19 @@
       "css": ["./reading_time.css"],
       "run_at": "document_end"
     }
-  ]
+  ],
+
+  "permissions": [
+    "storage"
+  ],
+
+  "options_ui": {
+    "page": "options.html"
+  },
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{ec628514-4772-4476-8ce6-3787fc5d29da}"
+    }
+  }
 }

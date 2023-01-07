@@ -1,6 +1,6 @@
 # Reading Time
 
-A simple Firefox extension that adds a pop-up to web-pages with the estimated reading time, based on 200 words per minute.
+A simple Firefox extension that adds a pop-up to web-pages with the estimated reading time, based on 200 words per minute (configurable in the addon options).
 
 <p>
   <img src="./reading-time-sample.png" alt="Reading Time screen shot">
