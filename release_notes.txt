@@ -21,3 +21,4 @@ v1.6
 - Design features to normalize element across different websites.
 v1.7
 - Added options to customise WPM and when the popup appears.
+- Added customizable domain blacklist.
