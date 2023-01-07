@@ -6,13 +6,21 @@
         <link rel="stylesheet" href="options.css">
     </head>
     <body>
-        <form>
+        <div class="wrapper">
             <label for="reading_speed">Reading speed (words per minute): </label>
-            <input ID="reading_speed" type="number" />
+            <input id="reading_speed" type="number" />
 
             <label for="popup_when_minutes_over">Show popup when page is longer than (minutes): </label>
-            <input ID="popup_when_minutes_over" type="number" />
-        </form>
+            <input id="popup_when_minutes_over" type="number" />
+
+            <hr>
+
+            <h3>Blacklisted Domains</h3>
+            <div id="domain_blacklist"></div>
+            <label for="new_blacklist_domain">Add domain to blacklist (i.e. example.com): </label>
+            <input id="new_blacklist_domain" type="text" />
+            <button id="add_blacklist_domain">➕ Add</button>
+        </div>
         <script src="options.js"></script>
     </body>
 </html>

@@ -1,5 +1,5 @@
-form {
-    margin: 10px;
+button {
+    cursor: pointer;
 }
 
 input {
@@ -11,4 +11,12 @@ label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
+}
+
+.domain-blacklist-item > span {
+    margin-left: 10px;
+}
+
+.wrapper {
+    margin: 10px;
 }

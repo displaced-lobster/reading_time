@@ -13,14 +13,15 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "exclude_matches": ["*://*.reddit.com/*",
-                          "*://*.twitter.com/*",
-                          "*://*.google.com/*",
-                          "*://*.youtube.com/*",
-                          "*://*.bing.com/*",
-                          "*://*.duckduckgo.com/*",
-                          "*://*.amazon.com/*",
-                          "*://*.kijiji.ca/*"],
+      "exclude_matches": [
+        "*://*.reddit.com/*",
+        "*://*.twitter.com/*",
+        "*://*.google.com/*",
+        "*://*.youtube.com/*",
+        "*://*.bing.com/*",
+        "*://*.duckduckgo.com/*",
+        "*://*.amazon.com/*"
+      ],
       "js": ["./reading_time.js"],
       "css": ["./reading_time.css"],
       "run_at": "document_end"

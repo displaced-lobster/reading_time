@@ -1,5 +1,7 @@
 const DEBUG = false;
 
+console.log(window.location.hostname)
+
 
 /*
  * Given a string, returns the word-count.
@@ -66,18 +68,21 @@ function count_words_by_element_name(element_name) {
 const settings = browser.storage.sync;
 Promise.all([
     settings.get("reading_speed"),
-    settings.get("popup_when_minutes_over")
+    settings.get("popup_when_minutes_over"),
+    settings.get("domain_blacklist"),
   ])
   .then(r => {
     const reading_speed = r[0]?.reading_speed || 200;
     const popup_when_minutes_over = r[1]?.popup_when_minutes_over || 0;
+    const domain_blacklist = r[2]?.domain_blacklist || [];
 
-    show_reading_time(reading_speed, popup_when_minutes_over);
+    if (!domain_blacklist.includes(window.location.hostname)) {
+      show_reading_time(reading_speed, popup_when_minutes_over);
+    }
   });
 
 
 function show_reading_time(reading_speed, popup_when_minutes_over) {
-
   DEBUG && console.log("reading_speed", reading_speed);
   DEBUG && console.log("popup_when_minutes_over", popup_when_minutes_over);
 
