@@ -29,3 +29,9 @@
   content: "X";
   font-weight: bold;
 }
+
+@media print {
+  .reading_time_element {
+    display: none;
+  }
+}
