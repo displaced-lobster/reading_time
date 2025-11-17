@@ -52,6 +52,7 @@ async function load_option(setting_name, default_value) {
 async function load_options() {
     await load_option("reading_speed", 200);
     await load_option("popup_when_minutes_over", 0);
+    await load_option("auto_hide_delay", 0);
     await load_domain_black_list();
 }
 
@@ -76,7 +77,7 @@ async function save_option(setting_name) {
 
 document.addEventListener("DOMContentLoaded", load_options);
 
-const options = ["reading_speed", "popup_when_minutes_over"];
+const options = ["reading_speed", "popup_when_minutes_over", "auto_hide_delay"];
 document.querySelectorAll(options.map(o => `#${o}`).join(","))
     .forEach(i => i.addEventListener("change", async e => await save_option(e.currentTarget.id)));
 
