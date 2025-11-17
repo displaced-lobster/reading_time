@@ -106,6 +106,6 @@ Promise.all([
     const auto_hide_delay = r[3]?.auto_hide_delay || 0;
 
     if (!domain_blacklist.includes(window.location.hostname)) {
-      show_reading_time(reading_speed, popup_when_minutes_over, auto_hide_delay);
+      show_reading_time(reading_speed, popup_when_minutes_over, auto_hide_delay * 1000);
     }
   });
