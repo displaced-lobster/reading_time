@@ -20,7 +20,7 @@ function remove_element() {
  * Adds the reading time element to the page's body with the number of minutes.
  * Styling for the element is added here.
  */
-function create_element(minutes) {
+function create_element(minutes, auto_hide_delay) {
   let element = document.createElement("div");
   element.classList.add("reading_time_element");
 
@@ -39,6 +39,11 @@ function create_element(minutes) {
 
   element.appendChild(content);
   document.body.appendChild(element);
+
+  // Auto-hide element after delay if configured (convert seconds to milliseconds)
+  if (auto_hide_delay > 0) {
+    dissapear_after_delay(element, auto_hide_delay);
+  }
 }
 
 
@@ -57,25 +62,7 @@ function count_words_by_element_name(element_name) {
   return word_count;
 }
 
-
-const settings = browser.storage.sync;
-Promise.all([
-    settings.get("reading_speed"),
-    settings.get("popup_when_minutes_over"),
-    settings.get("domain_blacklist"),
-  ])
-  .then(r => {
-    const reading_speed = r[0]?.reading_speed || 200;
-    const popup_when_minutes_over = r[1]?.popup_when_minutes_over || 0;
-    const domain_blacklist = r[2]?.domain_blacklist || [];
-
-    if (!domain_blacklist.includes(window.location.hostname)) {
-      show_reading_time(reading_speed, popup_when_minutes_over);
-    }
-  });
-
-
-function show_reading_time(reading_speed, popup_when_minutes_over) {
+function show_reading_time(reading_speed, popup_when_minutes_over, auto_hide_delay) {
   // Count all words in body of document
   let word_count = count_words(document.body.innerText);
 
@@ -93,6 +80,32 @@ function show_reading_time(reading_speed, popup_when_minutes_over) {
 
   // Spawn reading time element
   if (reading_time >= popup_when_minutes_over) {
-    create_element(reading_time);
+    create_element(reading_time, auto_hide_delay);
   }
 }
+
+function dissapear_after_delay(element, delay) {
+  setTimeout(() => {
+    if (element.parentNode) {
+      element.parentNode.removeChild(element);
+    }
+  }, delay);
+}
+
+const settings = browser.storage.sync;
+Promise.all([
+    settings.get("reading_speed"),
+    settings.get("popup_when_minutes_over"),
+    settings.get("domain_blacklist"),
+    settings.get("auto_hide_delay"),
+  ])
+  .then(r => {
+    const reading_speed = r[0]?.reading_speed || 200;
+    const popup_when_minutes_over = r[1]?.popup_when_minutes_over || 0;
+    const domain_blacklist = r[2]?.domain_blacklist || [];
+    const auto_hide_delay = r[3]?.auto_hide_delay || 0;
+
+    if (!domain_blacklist.includes(window.location.hostname)) {
+      show_reading_time(reading_speed, popup_when_minutes_over, auto_hide_delay * 1000);
+    }
+  });
