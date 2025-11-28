@@ -1,24 +1,37 @@
-v 1.0
+# Release Notes
+
+v1.0
 - Initial release.
+
 v1.1
 - Removed console logging.
+
 v1.2
 - Improved the pop-up element's styling.
 - Modified reading time calculation to attempt to compensate for extra text, i.e. navigation, header, footer, etc.
 - Changed reading time to be displayed if time is greater than 0.
 - Modified window load event as per https://developer.mozilla.org/en-US/docs/Web/Events/load
+
 v1.3
 - Tweaks to pop-up styling.
 - Moved window load event from script to manifest.
 - Added exclusion list, very basic.
+
 v1.4
 - Fixed issue with pop-up not showing up on some sites.
+
 v1.5
 - Added functionality to subtract words from the navigation, header, and footer elements.
 - Potential for subtracting words from count more than once but has lead to more accurate word count overall; still over counting words but much closer.
+
 v1.6
 - New element design.
 - Design features to normalize element across different websites.
+
 v1.7
 - Added options to customise WPM and when the popup appears.
 - Added customizable domain blacklist.
+
+v1.8
+- Hide Reading Time element when printing. Thanks to [CodeThomasB](https://github.com/displaced-lobster/reading_time/commits?author=CoderThomasB)
+- Add optional automatic timeout. Thanks to [usbt0p](https://github.com/displaced-lobster/reading_time/commits?author=usbt0p)

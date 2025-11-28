@@ -1,18 +1,17 @@
 {
   "manifest_version": 2,
   "name": "Reading Time",
-  "version": "1.7",
-
+  "version": "1.8",
   "description": "Displays the estimated reading time for a website in a small popup element.",
   "homepage_url": "https://github.com/scripts-richard/reading_time",
-
   "icons": {
     "48": "icons/reading_time-48.png"
   },
-
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
+      "matches": [
+        "<all_urls>"
+      ],
       "exclude_matches": [
         "*://*.reddit.com/*",
         "*://*.twitter.com/*",
@@ -22,20 +21,21 @@
         "*://*.duckduckgo.com/*",
         "*://*.amazon.com/*"
       ],
-      "js": ["./reading_time.js"],
-      "css": ["./reading_time.css"],
+      "js": [
+        "./reading_time.js"
+      ],
+      "css": [
+        "./reading_time.css"
+      ],
       "run_at": "document_end"
     }
   ],
-
   "permissions": [
     "storage"
   ],
-
   "options_ui": {
     "page": "options.html"
   },
-
   "browser_specific_settings": {
     "gecko": {
       "id": "{df990922-ed8a-439b-9c48-e2179e5d0ee2}"
